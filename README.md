@@ -18,7 +18,7 @@ These are the project required dependencies:
 
 Simply execute the `PokeServerApplication` as a Java application to automatically start the Spring Boot Server. At start, the application will automatically populate the Pokemons belonging to "Red" version from PokeAPI database. Database is in H2 file, so is non volatile, and in following start, if data is present it will not retrieve all data again.
 
-## Endpoints
+## HTTP Endpoints
 
 The following endpoints have been added:
 
@@ -32,4 +32,6 @@ The following endpoints have been added:
  
 ## Tests
 
-Junit tests are present in class `PokemonControllerTests`
+Junit tests classes 
+- `PokemonControllerTests` includes tests for public HTTP Endpoints 
+- `PokemonRestServiceTest` includes tests for internal service which fetchs Pokemons from PokeAPI.
