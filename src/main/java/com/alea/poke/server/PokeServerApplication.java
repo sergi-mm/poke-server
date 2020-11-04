@@ -1,6 +1,5 @@
 package com.alea.poke.server;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.alea.poke.service.PokemonService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.alea.poke")
@@ -21,9 +18,6 @@ import com.alea.poke.service.PokemonService;
 @EnableJpaRepositories(basePackages = "com.alea.poke.repository")
 public class PokeServerApplication {
 	
-	@Autowired
-	private PokemonService pokemonService;
-
 	public static void main(String[] args) {
 		SpringApplication.run(PokeServerApplication.class, args);
 	}
