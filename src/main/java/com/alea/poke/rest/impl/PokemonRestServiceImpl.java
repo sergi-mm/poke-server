@@ -44,7 +44,8 @@ public class PokemonRestServiceImpl implements PokemonRestService{
 			//logger.debug("Retreiving pokemon " + result.getName());
 			
 			ResponseEntity<PokemonDTO> pokemonRes = restTemplate.exchange(result.getUrl(), HttpMethod.GET, entity, PokemonDTO.class);
-			
+
+			count++;
 			if(count % 100 == 0) {
 				logger.info("Fetched " + count+ " results");
 			}
@@ -52,7 +53,6 @@ public class PokemonRestServiceImpl implements PokemonRestService{
 			if(pokemonRes.hasBody() && version.isPresent() 
 					&& pokemonRes.getBody().getGameIndices().stream().anyMatch(v -> v.getVersionDTO().getName().equals(version.get()))) {
 				list.add(pokemonRes.getBody());
-				count++;
 			}
 			
 		}
